@@ -6,11 +6,11 @@ touch project/src/module2/include/module2.h project/src/module2/lib/module2.so
 ln project/src/module1/include/module1.h project/bin/module1_hardlink.h
 ln project/src/module2/lib/module2.so project/bin/module2_hardlink.so
 
-ln -s project/docs project/documentation
-ln -s project/src/module1/lib/module1.so project/src/module2/lib/module1_symlink.so
+ln -s docs project/documentation
+ln -s ../../module1/lib/module1.so project/src/module2/lib/module1_symlink.so
 
 chmod 755 project
-chmod 700 project/src/module1/include project/src/module1/lib project/src/module2/include project/src/module2/lib
+find project/src -type d -exec chmod 700 {} \;
+
 chmod 644 project/src/module1/include/module1.h project/src/module2/include/module2.h
 chmod 755 project/src/module1/lib/module1.so project/src/module2/lib/module2.so
-
